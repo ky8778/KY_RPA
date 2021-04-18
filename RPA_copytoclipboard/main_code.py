@@ -1,44 +1,47 @@
-from tkinter import *
-from PIL import ImageTk
+import tkinter as tk
+import copy_to_clipboard as ctc
 import os
 
-def cmd_ky():
-    print("command Test")
-    label1.config(text="Changed Text")
-    print(txt.get("1.0", END))              # 1.0 : 첫번째라인, 0번째컬럼, END : 끝까지
-    print(ent.get())
+BASEPATH = os.path.dirname(os.path.realpath(__file__))
 
-root = Tk()
-root.title("KY")                        # 제목
-root.geometry("600x800+0+0")            # 가로x세로+x+y
-root.resizable(False, False)            # 창 크기 조절 허용 안함
+class app(tk.Frame):
+    def __init__(self):
+        self.root = tk.Tk()
+        self.root.title("Copy Image to Clipboard")
 
-pjt_dir = os.path.dirname(os.path.realpath(__file__))
-print(pjt_dir) #프로젝트 소스코드 파일 경로 출력
-photo = ImageTk.PhotoImage(file=pjt_dir+"\\images\\img.jpg")
-label1 = Label(root, text="Test")
-label2 = Label(root, image=photo)
-label1.pack()
-label2.pack()
+        # UI
+        self.root.geometry("600x400+1000+500")
+        self.root.resizable(False, False)
+        self.ent = tk.Entry(self.root, font="100")
+        self.ent.focus()
+        self.btn = tk.Button(self.root,
+                            text="Click here to copy image to your clipboard",
+                            font="100",
+                            bg="green",
+                            fg="white",
+                            compound=tk.CENTER,
+                            command=self.CopyToClipboard)
+        self.ent.place(width=600, height=150)
+        # self.ent.pack(side=tk.LEFT)
+        self.btn.place(y=200, width=600, height=250)
+        # self.btn.pack(side=tk.RIGHT)
 
-# 위젯(widget) : 버튼, 체크박스 등 이벤트를 통칭한 것을 의미
-btn1 = Button(root, padx=10, pady=10, text="버튼1")
-btn1.pack()                             # btn1 에 설정한 속성 값을 적용시켜줌
-                                        # root에 text로 들어가도록
+        self.root.bind('<Return>', self.CallbackEnter)
+        self.root.mainloop()
 
-txt = Text(root, width=100, height=10)
-txt.insert(END, "Enter the messagese")                            # insert(index, chars, *args), index : 글자 넣을 위치
-txt.pack()
+    def CallbackEnter(self, event):
+        self.CopyToClipboard()
 
-ent = Entry(root, width=30)             # Entry는 한줄만 입력하는 위젯
-ent.pack()
+    def CopyToClipboard(self):
+        try:
+            img_path = BASEPATH + "\\images\\" + self.ent.get()
+            ctc.copy_to_clipboard(img_path)
+            self.ent.delete(0, 'end')
+        except:
+            print("CopyToClipboard Error!!")
 
-btn2 = Button(root, fg="red", bg="white", width=10, height=10, text="버튼2")
-btn2.pack()
-
-btn4 = Button(root, text="cmd btn", command=cmd_ky)
-btn4.pack()
-
-
-
-root.mainloop()
+if __name__ == "__main__":
+    try:
+        ctc_app = app()
+    except Exception:
+        print(Exception.args)
