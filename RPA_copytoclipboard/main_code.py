@@ -32,22 +32,26 @@ class app(tk.Frame):
         self.btn.place(y=450, width=600, height=250)
         # self.btn.pack(side=tk.RIGHT)
 
-        self.root.bind('<Return>', self.CallbackEnter)
+        self.root.bind('<Return>', self.callback)
         self.root.mainloop()
 
-    def CallbackEnter(self, event):
+    def callback(self, event):
         self.CopyToClipboard()
 
     def CopyToClipboard(self):
+        self.btn.bg = "red"
         try:
             img_path = BASEPATH + "\\images\\" + self.ent.get()
+            # print(img_path)
             ctc.copy_to_clipboard(img_path)
             self.ent.delete(0, 'end')
         except:
-            print("CopyToClipboard Error!!")
+            self.ent.delete(0, 'end')
+            # print("CopyToClipboard Error!!")
 
 if __name__ == "__main__":
     try:
         ctc_app = app()
     except Exception:
-        print(Exception.args)
+        # print(Exception.args)
+        pass
