@@ -22,11 +22,16 @@ RPA(Robotic Process Automation) : 업무자동화
 
 ### 사용법
 
-1. Locate your image file in this exe file folder
-2. Put image file name
-3. use ctrl + v
+1. RPA_copytoclipboard / dist / main_code 폴더를 다운로드
+2. 폴더 아래에 images 폴더 만들기
+3. images 폴더에 클립보드에 저장할 이미지들 넣기
+4. main_code.exe 실행
+5. 이미지 파일명 입력
+6. `ctrl + v` 로 원하는 곳에 붙여넣기
 
 ### UI
 
-![RPA_copytoclipboard_UI](images\RPA_copytoclipboard_UI.JPG)
+![RPA_copytoclipboard_UI](https://user-images.githubusercontent.com/53212228/120791047-a88fc180-c56e-11eb-9969-6da32ae080bf.JPG)
+
+
 
