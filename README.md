@@ -26,3 +26,7 @@ RPA(Robotic Process Automation) : 업무자동화
 2. Put image file name
 3. use ctrl + v
 
+### UI
+
+![RPA_copytoclipboard_UI](images\RPA_copytoclipboard_UI.JPG)
+
