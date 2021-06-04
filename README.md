@@ -31,7 +31,13 @@ RPA(Robotic Process Automation) : 업무자동화
 
 ### UI
 
-<img src="https://user-images.githubusercontent.com/53212228/120791047-a88fc180-c56e-11eb-9969-6da32ae080bf.JPG" alt="RPA_copytoclipboard_Uㅑ" style="zoom:33%;" />
+<img src="https://user-images.githubusercontent.com/53212228/120791047-a88fc180-c56e-11eb-9969-6da32ae080bf.JPG" height="500px" width="400px" align="left">
+
+
+
+
+
+
 
 
 
