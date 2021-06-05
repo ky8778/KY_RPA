@@ -3,7 +3,7 @@
 RPA(Robotic Process Automation) : 업무자동화
 
 - Python을 이용한 업무자동화를 위한 소스를 모아놓은 Repository 입니다.
-
+- ex_sql.py : python의 sqlite3 라이브러리를 활용해 쿼리를 사용하는 python 예제코드입니다.
 
 
 ## RPA_copytoclipboard
